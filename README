@@ -1,0 +1,77 @@
+NAME
+    Dist::Zilla::Plugin::ChangelogFromGit - build CHANGES from git commits
+    and tags
+
+VERSION
+    version 0.001
+
+SYNOPSIS
+    In your dist.ini:
+
+            [ChangelogFromGit]
+            max_age     = 365
+            tag_regexp  = ^v\d+_\d+$
+            file_name   = CHANGES
+            wrap_column = 74
+
+    The example values are the defaults.
+
+DESCRIPTION
+    This Dist::Zilla plugin writes a CHANGES file that contains formatted
+    commit information from recent git logs.
+
+    This plugin has the following configuration variables:
+
+    * max_age
+
+      It may be impractical to include the full change log in a mature
+      project's distribution. "max_age" limits the changes to the most
+      recent ones within a number of days. The default is about one year.
+
+      Include two years of changes:
+
+              max_age = 730
+
+    * tag_regexp
+
+      This plugin breaks the changelog into sections delineated by releases,
+      which are defined by release tags. "tag_regexp" may be used to focus
+      only on those tags that follow a particular release tagging format.
+      Some of the author's repositories contain multiple projects, each with
+      their own specific release tag formats, so that changelogs can focus
+      on particular projects' tags. For instance, POE::Test::Loops' release
+      tags may be specified as:
+
+              tag_regexp = ^ptl-
+
+    * file_name
+
+      Everyone has a preference for their change logs. If you prefer
+      lowercase in your change log file names, you migt specify:
+
+              file_name = Changes
+
+    * wrap_column
+
+      Changes from different contributors tend to vary in format. This
+      plugin uses Text::Wrap to normalize the width of commit messages. The
+      "wrap_column" parameter may be used to alter the reformatted line
+      width. If 74 is to short, one might specify:
+
+              wrap_column = 78
+
+Subversion and CVS
+    This plugin is almost entirely a copy-and-paste port of a command-line
+    tool I wrote a while ago. I also have tools to generate change logs from
+    CVS and Subversion commits. If anyone is interested, plugins for these
+    other version control systems should be about an hour's work apiece.
+
+AUTHOR
+    Rocco Caputo <rcaputo@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2010 by Rocco Caputo.
+
+    This is free software; you may redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language itself.
+
