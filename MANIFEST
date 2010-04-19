@@ -6,7 +6,6 @@ Makefile.PL
 README
 README.mkdn
 dist.ini
-lib/Dist/Zilla/Plugin/.ChangelogFromGit.pm.swp
 lib/Dist/Zilla/Plugin/ChangelogFromGit.pm
 t/000-report-versions.t
 t/release-pod-coverage.t

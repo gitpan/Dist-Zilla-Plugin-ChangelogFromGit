@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ChangelogFromGit;
 BEGIN {
-  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.001';
+  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.002';
 }
 
 # ABSTRACT: Build a Changes file from a project's git log.
@@ -152,7 +152,7 @@ Dist::Zilla::Plugin::ChangelogFromGit - build CHANGES from git commits and tags
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 

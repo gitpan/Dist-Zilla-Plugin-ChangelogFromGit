@@ -21,7 +21,7 @@ my %WriteMakefileArgs = (
                        'BUILD_REQUIRES' => {},
                        'ABSTRACT' => 'Build a Changes file from a project\'s git log.',
                        'EXE_FILES' => [],
-                       'VERSION' => '0.001',
+                       'VERSION' => '0.002',
                        'PREREQ_PM' => {
                                         'Text::Wrap' => '2006.1117'
                                       },
