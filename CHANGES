@@ -1,3 +1,79 @@
-===================================
-End of changes in the last 365 days
-===================================
+==================================================
+Changes from 2010-10-17 00:00:00 +0000 to present.
+==================================================
+
+------------------------------------------
+version 0.003 at 2011-10-17 01:34:20 +0000
+------------------------------------------
+
+  Change: 10221addf8e39d8eb7906f76e648e3cf8b4f165f
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2011-10-16 21:32:23 +0000
+
+    Make the plugin subclassable for new formats. Overhaul docs. 
+
+  Change: e6efad6d34ea8d68d55af90ea0d68727786ecd20
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2011-10-15 23:45:05 +0000
+
+    Begin using some Git release tools. They're not as scary since they
+    were explained to me. Also digging around in Pod::Weaver has helped
+    me think like RJBS. :P 
+
+  Change: 3da0800a05bd09ab67733211fab60c7c0b71a244
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2011-10-15 18:50:58 +0000
+
+    Reformat whitespace to "smart" tabs. 
+
+  Change: 3ecd5bcf9cc96e0564ea074cb550135bade5863e
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2011-10-15 15:35:07 +0000
+
+    Include changes up to the very first release.
+
+    An old fencepost error prevented this plugin from including the very
+    first release. Fix that, and make some minor changes so Cory Watson's
+    contributions do the "right thing" for me. 
+
+  Change: 9972a91b9e8347861649d983fe806727ca1b5535
+  Author: Cory G Watson <gphat@Corys-iMac.local>
+  Date : 2011-10-15 13:32:29 +0000
+
+    Un-hardcode the max_age and add the attribute to the role. Also add
+    documentation. 
+
+  Change: 283fa2dd5fee25a3d44b410412b8f93d53e0f620
+  Author: Cory G Watson <gphat@Corys-iMac.local>
+  Date : 2011-10-15 13:32:29 +0000
+
+    Make a role, document setup. 
+
+  Change: f9780ef72676a8b687025cb13aa1af00427a725b
+  Author: Cory G Watson <gphat@Corys-iMac.local>
+  Date : 2011-10-15 13:32:29 +0000
+
+    Refactor to move all output formatting to a subclass. 
+
+  Change: 496513fb7875958bd3573aad47dbd0c10578b13e
+  Author: Apocalypse <perl@0ne.us>
+  Date : 2011-02-21 09:02:33 +0000
+
+    Add smarter HEAD tag prediction to cooperate with auto-versioning
+    plugins. 
+
+  Change: f42ebdb35ac436a61f4f484d0fcfe8bbfe2e7cb2
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2011-02-21 00:19:11 +0000
+
+    Fix dist.ini. Dist::Zilla's still a moving target? 
+
+  Change: b4fff39e4ced0a14460de22df1468f33ba651435
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2010-04-19 01:24:19 +0000
+
+    Test before releasing. 
+
+===============================================
+Plus 1 release after 2010-10-17 00:00:00 +0000.
+===============================================

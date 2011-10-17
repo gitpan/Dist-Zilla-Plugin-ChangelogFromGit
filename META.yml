@@ -1,20 +1,23 @@
 ---
-abstract: "Build a Changes file from a project's git log."
+abstract: "Write a Changes file from a project's git log."
 author:
   - 'Rocco Caputo <rcaputo@cpan.org>'
 build_requires: {}
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
-generated_by: 'Dist::Zilla version 2.100922'
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.200012, CPAN::Meta::Converter version 2.102400'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Dist-Zilla-Plugin-ChangelogFromGit
-recommends: {}
 requires:
+  DateTime: 0.66
+  Git::Repository: 1.22
+  Software::Release: 0.01
   Text::Wrap: 2006.1117
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ChangelogFromGit
-  repository: http://github.com/rcaputo/dzp-changelogfromgit
-version: 0.002
+  repository: git://github.com/rcaputo/dzp-changelogfromgit.git
+version: 0.003
