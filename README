@@ -3,7 +3,7 @@ NAME
     project's git log.
 
 VERSION
-    version 0.003
+    version 0.004
 
 SYNOPSIS
     Here's an example dist.ini section showing all the current options and

@@ -9,25 +9,27 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Write a Changes file from a project\'s git log.',
-  'AUTHOR' => 'Rocco Caputo <rcaputo@cpan.org>',
-  'BUILD_REQUIRES' => {},
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+  "ABSTRACT" => "Write a Changes file from a project's git log.",
+  "AUTHOR" => "Rocco Caputo <rcaputo\@cpan.org>",
+  "BUILD_REQUIRES" => {},
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'Dist-Zilla-Plugin-ChangelogFromGit',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'Dist::Zilla::Plugin::ChangelogFromGit',
-  'PREREQ_PM' => {
-    'DateTime' => '0.66',
-    'Git::Repository' => '1.22',
-    'Software::Release' => '0.01',
-    'Text::Wrap' => '2006.1117'
+  "DISTNAME" => "Dist-Zilla-Plugin-ChangelogFromGit",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Dist::Zilla::Plugin::ChangelogFromGit",
+  "PREREQ_PM" => {
+    "DateTime" => "0.66",
+    "Dist::Zilla" => 4,
+    "Git::Repository" => "1.22",
+    "Moose::Autobox" => "0.11",
+    "Software::Release" => "0.01",
+    "Text::Wrap" => "2006.1117"
   },
-  'VERSION' => '0.003',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "0.004",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

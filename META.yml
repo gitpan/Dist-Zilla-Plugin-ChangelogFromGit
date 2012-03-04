@@ -6,7 +6,7 @@ build_requires: {}
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200012, CPAN::Meta::Converter version 2.102400'
+generated_by: 'Dist::Zilla version 4.300007, CPAN::Meta::Converter version 2.112150'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -14,10 +14,12 @@ meta-spec:
 name: Dist-Zilla-Plugin-ChangelogFromGit
 requires:
   DateTime: 0.66
+  Dist::Zilla: 4
   Git::Repository: 1.22
+  Moose::Autobox: 0.11
   Software::Release: 0.01
   Text::Wrap: 2006.1117
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ChangelogFromGit
   repository: git://github.com/rcaputo/dzp-changelogfromgit.git
-version: 0.003
+version: 0.004

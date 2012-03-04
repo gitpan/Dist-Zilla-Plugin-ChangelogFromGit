@@ -1,9 +1,43 @@
 ==================================================
-Changes from 2010-10-17 00:00:00 +0000 to present.
+Changes from 2011-03-05 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.003 at 2011-10-17 01:34:20 +0000
+version 0.004 at 2012-03-04 19:18:35 +0000
+------------------------------------------
+
+  Change: b8d69be39efda97c91530f92dc64dbfa693b6e31
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2012-03-04 14:07:22 +0000
+
+    Merge branch 'patch-1' of
+    https://github.com/ioanrogers/dzp-changelogfromgit into
+    ioanrogers-patch-1 
+
+  Change: 30bf442a804d72771df8889e59b2f96ecc52be29
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2012-03-04 13:55:37 +0000
+
+    [rt.cpan.org 74028] Add Moose::Autobox 0.11 as an explicit
+    dependency.
+
+    Thanks to Andreas Koenig for reporting this. 
+
+  Change: 25a4a4125a5b426daffdda26e62bf8342f132f56
+  Author: Ioan Rogers <ioan.rogers@gmail.com>
+  Date : 2012-01-13 10:49:38 +0000
+
+    I just released dzp::ChangelogFromGit::CPAN::Changes, which extends
+    this module.
+
+    The first smoke tests are unfortunately bringing failures [see
+    http://www.cpantesters.org/cpan/report/0594e22c-3d69-11e1-9d6f-f6dbfa
+    7543f5] which seem to be due to a missing Moose::Autobox, which is
+    required by Dist::Zilla, which is required by you, which is required
+    by me :-) 
+
+------------------------------------------
+version 0.003 at 2011-10-17 01:32:23 +0000
 ------------------------------------------
 
   Change: 10221addf8e39d8eb7906f76e648e3cf8b4f165f
@@ -75,5 +109,5 @@ version 0.003 at 2011-10-17 01:34:20 +0000
     Test before releasing. 
 
 ===============================================
-Plus 1 release after 2010-10-17 00:00:00 +0000.
+Plus 1 release after 2011-03-05 00:00:00 +0000.
 ===============================================
