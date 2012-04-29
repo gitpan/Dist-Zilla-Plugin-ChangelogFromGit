@@ -1,9 +1,32 @@
 ==================================================
-Changes from 2011-03-05 00:00:00 +0000 to present.
+Changes from 2011-04-30 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.004 at 2012-03-04 19:18:35 +0000
+version 0.005 at 2012-04-29 22:09:28 +0000
+------------------------------------------
+
+  Change: 7edede6824e36d1424111910fa0ef9754939f7c5
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-04-29 18:08:07 +0000
+
+    Fix a lovely little error scenario which occurs when it can find no
+    previous releases.
+
+    A. It tries to get_release(-1), which returns undef , and then it
+    tries undef->version() , which can't work.
+
+    B. When you avoid the former by checking for an empty release set
+    first,
+
+    it dies trying to dereference "undef" to an array to return
+
+    elements(), so pre-populating the array with a default empty
+
+    array-reference is required for it to work. 
+
+------------------------------------------
+version 0.004 at 2012-03-04 19:07:22 +0000
 ------------------------------------------
 
   Change: b8d69be39efda97c91530f92dc64dbfa693b6e31
@@ -109,5 +132,5 @@ version 0.003 at 2011-10-17 01:32:23 +0000
     Test before releasing. 
 
 ===============================================
-Plus 1 release after 2011-03-05 00:00:00 +0000.
+Plus 1 release after 2011-04-30 00:00:00 +0000.
 ===============================================

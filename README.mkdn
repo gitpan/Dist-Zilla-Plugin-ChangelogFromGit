@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ChangelogFromGit - Write a Changes file from a project's gi
 
 # VERSION
 
-version 0.004
+version 0.005
 
 # SYNOPSIS
 
