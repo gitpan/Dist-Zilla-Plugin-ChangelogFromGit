@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ChangelogFromGit;
 {
-  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.005';
+  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.006';
 }
 
 # Indent style:
@@ -85,6 +85,16 @@ has earliest_date => (
 	},
 );
 
+has include_message => (
+    is  => 'ro',
+    isa => 'Str',
+);
+
+has exclude_message => (
+    is  => 'ro',
+    isa => 'Str',
+);
+
 sub gather_files {
 	my ($self, $arg) = @_;
 
@@ -160,8 +170,22 @@ sub gather_files {
 
 			warn ">>> $release_range\n" if $self->debug();
 
+			my $exclude_message_re = $self->exclude_message();
+			my $include_message_re = $self->include_message();
+
 			my $iter = Git::Repository::Log::Iterator->new($release_range);
 			while (my $log = $iter->next) {
+				next if (
+					defined $exclude_message_re and
+					$log->message() =~ /$exclude_message_re/o
+				);
+
+				next if (
+					defined $include_message_re and
+					$log->message() =~ /$include_message_re/o
+				);
+
+				#print STDERR "LOG: ".$log->message."\n";
 
 				warn("    ", $log->commit(), " ", $log->committer_localtime, "\n") if (
 					$self->debug()
@@ -387,7 +411,7 @@ Dist::Zilla::Plugin::ChangelogFromGit - Write a Changes file from a project's gi
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -396,7 +420,7 @@ their default values.
 
 	[ChangelogFromGit]
 	max_age     = 365
-	tag_regexp  = ^v\d+_\d+$
+	tag_regexp  = ^v(\d+\.\d+)$
 	file_name   = CHANGES
 	wrap_column = 74
 	debug       = 0
@@ -479,6 +503,37 @@ runtime tracing on STDERR.
 
 	[ChangelogFromGit]
 	debug = 1
+
+=head2 exclude_message = REGULAR_EXPRESSION
+
+C<exclude_message> sets a regular expression which discards matching
+commit messages.  This provides a way to exclude commit messages such
+as 'forgot to include file X' or 'typo'.  The regular expression is
+case sensitive.
+
+	[ChangelogFromGit]
+	exclude_message = ^(forgot|typo)
+
+C<include_message> can be used to do the opposite: exclude all changes
+except ones that match a regular expression.  Using both at once is
+liable to generate empty change logs.
+
+=head2 include_message = REGULAR_EXPRESSION
+
+C<include_message> does the opposite of C<exclude_message>: it sets a
+regular expression which commit messages must match in order to be
+included in the Changes file.  This means that when making a commit
+with a relevant message, you must include text that matches the
+regular expression pattern to have it included in the Changes file.
+All other commit messages are ignored.
+
+The regular expression is case sensitive.
+
+	[ChangelogFromGit]
+	include_message = ^Major
+
+Using both C<include_message> and C<exclude_message> at the same time
+will most likely result in empty change logs.
 
 =head1 HOW IT WORKS
 

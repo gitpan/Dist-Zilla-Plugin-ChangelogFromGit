@@ -27,7 +27,7 @@ my %WriteMakefileArgs = (
     "Software::Release" => "0.01",
     "Text::Wrap" => "2006.1117"
   },
-  "VERSION" => "0.005",
+  "VERSION" => "0.006",
   "test" => {
     "TESTS" => "t/*.t"
   }
