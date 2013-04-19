@@ -1,9 +1,30 @@
 ==================================================
-Changes from 2011-10-12 00:00:00 +0000 to present.
+Changes from 2012-04-19 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.006 at 2012-10-11 04:04:43 +0000
+version 0.007 at 2013-04-19 03:54:55 +0000
+------------------------------------------
+
+  Change: b75ebd08c22edcc99fc07268c737e654cd89a826
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2013-04-18 20:37:25 +0000
+
+    Merge pull request #8 from zengargoyle/patch-1
+
+    [rt.cpan.org 83445] Fix include_message to include, not exclude. 
+
+  Change: 2b4a47c0fa57eeaf94bdec09fe1129bfe10f25a7
+  Author: zengargoyle <zengargoyle@gmail.com>
+  Date : 2013-02-20 23:08:33 +0000
+
+    Update lib/Dist/Zilla/Plugin/ChangelogFromGit.pm
+
+    log messages should be skipped if there is a include_message_re and
+    the message *DOESN'T* match the include_message_re. 
+
+------------------------------------------
+version 0.006 at 2012-10-11 04:01:29 +0000
 ------------------------------------------
 
   Change: d6966f4c00c8b48f978c9eb03871d89a15b52533
@@ -98,112 +119,6 @@ version 0.005 at 2012-04-29 22:08:07 +0000
 
     array-reference is required for it to work. 
 
-------------------------------------------
-version 0.004 at 2012-03-04 19:07:22 +0000
-------------------------------------------
-
-  Change: b8d69be39efda97c91530f92dc64dbfa693b6e31
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2012-03-04 14:07:22 +0000
-
-    Merge branch 'patch-1' of
-    https://github.com/ioanrogers/dzp-changelogfromgit into
-    ioanrogers-patch-1 
-
-  Change: 30bf442a804d72771df8889e59b2f96ecc52be29
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2012-03-04 13:55:37 +0000
-
-    [rt.cpan.org 74028] Add Moose::Autobox 0.11 as an explicit
-    dependency.
-
-    Thanks to Andreas Koenig for reporting this. 
-
-  Change: 25a4a4125a5b426daffdda26e62bf8342f132f56
-  Author: Ioan Rogers <ioan.rogers@gmail.com>
-  Date : 2012-01-13 10:49:38 +0000
-
-    I just released dzp::ChangelogFromGit::CPAN::Changes, which extends
-    this module.
-
-    The first smoke tests are unfortunately bringing failures [see
-    http://www.cpantesters.org/cpan/report/0594e22c-3d69-11e1-9d6f-f6dbfa
-    7543f5] which seem to be due to a missing Moose::Autobox, which is
-    required by Dist::Zilla, which is required by you, which is required
-    by me :-) 
-
-------------------------------------------
-version 0.003 at 2011-10-17 01:32:23 +0000
-------------------------------------------
-
-  Change: 10221addf8e39d8eb7906f76e648e3cf8b4f165f
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2011-10-16 21:32:23 +0000
-
-    Make the plugin subclassable for new formats. Overhaul docs. 
-
-  Change: e6efad6d34ea8d68d55af90ea0d68727786ecd20
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2011-10-15 23:45:05 +0000
-
-    Begin using some Git release tools. They're not as scary since they
-    were explained to me. Also digging around in Pod::Weaver has helped
-    me think like RJBS. :P 
-
-  Change: 3da0800a05bd09ab67733211fab60c7c0b71a244
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2011-10-15 18:50:58 +0000
-
-    Reformat whitespace to "smart" tabs. 
-
-  Change: 3ecd5bcf9cc96e0564ea074cb550135bade5863e
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2011-10-15 15:35:07 +0000
-
-    Include changes up to the very first release.
-
-    An old fencepost error prevented this plugin from including the very
-    first release. Fix that, and make some minor changes so Cory Watson's
-    contributions do the "right thing" for me. 
-
-  Change: 9972a91b9e8347861649d983fe806727ca1b5535
-  Author: Cory G Watson <gphat@Corys-iMac.local>
-  Date : 2011-10-15 13:32:29 +0000
-
-    Un-hardcode the max_age and add the attribute to the role. Also add
-    documentation. 
-
-  Change: 283fa2dd5fee25a3d44b410412b8f93d53e0f620
-  Author: Cory G Watson <gphat@Corys-iMac.local>
-  Date : 2011-10-15 13:32:29 +0000
-
-    Make a role, document setup. 
-
-  Change: f9780ef72676a8b687025cb13aa1af00427a725b
-  Author: Cory G Watson <gphat@Corys-iMac.local>
-  Date : 2011-10-15 13:32:29 +0000
-
-    Refactor to move all output formatting to a subclass. 
-
-  Change: 496513fb7875958bd3573aad47dbd0c10578b13e
-  Author: Apocalypse <perl@0ne.us>
-  Date : 2011-02-21 09:02:33 +0000
-
-    Add smarter HEAD tag prediction to cooperate with auto-versioning
-    plugins. 
-
-  Change: f42ebdb35ac436a61f4f484d0fcfe8bbfe2e7cb2
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2011-02-21 00:19:11 +0000
-
-    Fix dist.ini. Dist::Zilla's still a moving target? 
-
-  Change: b4fff39e4ced0a14460de22df1468f33ba651435
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2010-04-19 01:24:19 +0000
-
-    Test before releasing. 
-
-===============================================
-Plus 1 release after 2011-10-12 00:00:00 +0000.
-===============================================
+================================================
+Plus 3 releases after 2012-04-19 00:00:00 +0000.
+================================================

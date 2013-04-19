@@ -24,4 +24,4 @@ resources:
   homepage: http://search.cpan.org/dist/Dist-Zilla-Plugin-ChangelogFromGit
   license: http://dev.perl.org/licenses/
   repository: git://github.com/rcaputo/dzp-changelogfromgit.git
-version: 0.006
+version: 0.007

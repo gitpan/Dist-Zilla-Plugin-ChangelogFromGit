@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ChangelogFromGit;
 {
-  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.006';
+  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.007';
 }
 
 # Indent style:
@@ -182,7 +182,7 @@ sub gather_files {
 
 				next if (
 					defined $include_message_re and
-					$log->message() =~ /$include_message_re/o
+					$log->message() !~ /$include_message_re/o
 				);
 
 				#print STDERR "LOG: ".$log->message."\n";
@@ -411,7 +411,7 @@ Dist::Zilla::Plugin::ChangelogFromGit - Write a Changes file from a project's gi
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
