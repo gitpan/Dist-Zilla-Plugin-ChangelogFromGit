@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ChangelogFromGit;
 {
-  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.014';
+  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.015';
 }
 
 # Indent style:
@@ -424,7 +424,7 @@ Dist::Zilla::Plugin::ChangelogFromGit - Write a Changes file from a project's gi
 
 =head1 VERSION
 
-version 0.014
+version 0.015
 
 =head1 SYNOPSIS
 
