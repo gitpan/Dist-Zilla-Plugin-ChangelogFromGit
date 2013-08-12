@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ChangelogFromGit - Write a Changes file from a project's gi
 
 # VERSION
 
-version 0.007
+version 0.014
 
 # SYNOPSIS
 
@@ -26,7 +26,7 @@ equivalent to the configuration above.
 # DESCRIPTION
 
 This Dist::Zilla plugin turns a project's git commit log into a
-change log file.  It's better than simply running `git log > CHANGES`
+change log file.  It's better than simply running \`git log > CHANGES\`
 in at least two ways.  First, it understands release tags, and it uses
 them to group changes by release.  Second, it reformats the changes to
 make them easier to read.  And third, subclasses can change some or
@@ -37,10 +37,10 @@ uses itself to generate its own change log.  Why not?
 
 # CONFIGURATION / PUBLIC ATTRIBUTES
 
-As seen in the [SYNOPSIS](#pod_SYNOPSIS), this plugin has a number of public
+As seen in the ["SYNOPSIS"](#SYNOPSIS), this plugin has a number of public
 attributes that may be set using dist.ini configuration variables.
 
-## max_age = INTEGER
+## max\_age = INTEGER
 
 The `max_age` configuration variable limits the age of releases to be
 included in the change log.  The default is to include releases going
@@ -54,7 +54,7 @@ default value:
 long-term projects that don't want to include the entire, huge commit
 history in every release.
 
-## tag_regexp = REGULAR_EXPRESSION
+## tag\_regexp = REGULAR\_EXPRESSION
 
 `tag_regexp` sets the regular expression that detects which tags mark
 releases.  It also extracts the version numbers from these tags using
@@ -69,7 +69,7 @@ There is no single standard format for release tags.  `tag_regexp`
 defaults to the author's convention.  It will most likely need to be
 changed.
 
-## file_name = STRING
+## file\_name = STRING
 
 `file_name` sets the name of the change log that will be written.  It
 defaults to "CHANGES", but some people may prefer "Changes",
@@ -78,7 +78,7 @@ defaults to "CHANGES", but some people may prefer "Changes",
 	[ChangelogFromGit]
 	file_name = Changes
 
-## wrap_column = INTEGER
+## wrap\_column = INTEGER
 
 Different contributors tend to use different commit message formats,
 which can be disconcerting to the typographically aware release
@@ -97,7 +97,7 @@ runtime tracing on STDERR.
 	[ChangelogFromGit]
 	debug = 1
 
-## exclude_message = REGULAR_EXPRESSION
+## exclude\_message = REGULAR\_EXPRESSION
 
 `exclude_message` sets a regular expression which discards matching
 commit messages.  This provides a way to exclude commit messages such
@@ -111,7 +111,7 @@ case sensitive.
 except ones that match a regular expression.  Using both at once is
 liable to generate empty change logs.
 
-## include_message = REGULAR_EXPRESSION
+## include\_message = REGULAR\_EXPRESSION
 
 `include_message` does the opposite of `exclude_message`: it sets a
 regular expression which commit messages must match in order to be
@@ -157,14 +157,14 @@ the change log must return empty strings.
 
 ## Rendering Entire Change Logs
 
-Methods beginning with "render_changelog" receive no parameters other
+Methods beginning with "render\_changelog" receive no parameters other
 than $self.  Everything they need to know about the change log is
 included in the object's attributes: `wrap_column`, `releases`,
 `skipped_release_count`, `earliest_date`.
 
-### render_changelog
+### render\_changelog
 
-render_changelog() returns the text of the entire change log.  By
+render\_changelog() returns the text of the entire change log.  By
 default, the change log is built from a header, zero or more releases,
 and a footer.
 
@@ -177,9 +177,9 @@ and a footer.
 		);
 	}
 
-### render_changelog_header
+### render\_changelog\_header
 
-render_changelog_header() renders some text that introduces the reader
+render\_changelog\_header() renders some text that introduces the reader
 to the change log.
 
 	sub render_changelog_header {
@@ -191,9 +191,9 @@ to the change log.
 		return $self->surround_line("=", $header) . "\n";
 	}
 
-### render_changelog_releases
+### render\_changelog\_releases
 
-render_changelog_releases() iterates through each release, calling
+render\_changelog\_releases() iterates through each release, calling
 upon $self to render them one at a time.
 
 	sub render_changelog_releases {
@@ -209,9 +209,9 @@ upon $self to render them one at a time.
 		return $changelog;
 	}
 
-### render_changelog_footer
+### render\_changelog\_footer
 
-render_changelog_footer() tells the reader that the change log is
+render\_changelog\_footer() tells the reader that the change log is
 over.  Normally the end of the file is sufficient warning, but a
 truncated change log is friendlier when the reader knows what they're
 missing.
@@ -239,14 +239,14 @@ missing.
 
 ## Rendering Individual Releases
 
-Methods beginning with "render_release" receive $self plus one
+Methods beginning with "render\_release" receive $self plus one
 additional parameter: a Software::Release object encapsulating the
 release and its changes.  See [Software::Release](http://search.cpan.org/perldoc?Software::Release) to learn the
 information that object encapsulates.
 
-### render_release
+### render\_release
 
-render_release() is called upon to render a single release.  In the
+render\_release() is called upon to render a single release.  In the
 change log, a release consists of a header, one or more changes, and a
 footer.
 
@@ -259,9 +259,9 @@ footer.
 		);
 	}
 
-### render_release_header
+### render\_release\_header
 
-render_release_header() introduces a release.
+render\_release\_header() introduces a release.
 
 	sub render_release_header {
 		my ($self, $release) = @_;
@@ -277,10 +277,10 @@ render_release_header() introduces a release.
 		return $self->surround_line("-", $release_header) . "\n";
 	}
 
-### render_release_changes
+### render\_release\_changes
 
-render_release_changes() iterates through the changes associated with
-each Software::Release object.  It calls upon render_change() to
+render\_release\_changes() iterates through the changes associated with
+each Software::Release object.  It calls upon render\_change() to
 render each change.
 
 	sub render_release_changes {
@@ -295,9 +295,9 @@ render each change.
 		return $changelog;
 	}
 
-### render_release_footer
+### render\_release\_footer
 
-render_release_footer() may be used to divide releases.  It's not used
+render\_release\_footer() may be used to divide releases.  It's not used
 	by default, but it's implemented for completeness.
 
 	sub render_release_footer {
@@ -307,14 +307,14 @@ render_release_footer() may be used to divide releases.  It's not used
 
 ## Rendering Individual Changes
 
-Methods beginning with "render_change" receive two parameters in
+Methods beginning with "render\_change" receive two parameters in
 addition to $self: a [Software::Release](http://search.cpan.org/perldoc?Software::Release) object encapsulating the
 release containing this change, and a [Software::Release::Change](http://search.cpan.org/perldoc?Software::Release::Change)
 object encapsulating the change itself.
 
-### render_change
+### render\_change
 
-render_change() renders a single change, which is the catenation of a
+render\_change() renders a single change, which is the catenation of a
 change header, change message, and footer.
 
 	sub render_change {
@@ -326,9 +326,9 @@ change header, change message, and footer.
 		);
 	}
 
-### render_change_header
+### render\_change\_header
 
-render_change_header() generally renders identifying information about
+render\_change\_header() generally renders identifying information about
 each change.  This method's responsibility is to produce useful
 information in a pleasant format.
 
@@ -361,9 +361,9 @@ information in a pleasant format.
 		);
 	}
 
-### render_change_message
+### render\_change\_message
 
-render_change_message() renders the commit message for the change log.
+render\_change\_message() renders the commit message for the change log.
 
 	sub render_change_message {
 		my ($self, $release, $change) = @_;
@@ -378,9 +378,9 @@ render_change_message() renders the commit message for the change log.
 		return fill("    ", "    ", $change->description) . "\n";
 	}
 
-### render_change_footer
+### render\_change\_footer
 
-render_change_footer() returns summary and/or divider text for the
+render\_change\_footer() returns summary and/or divider text for the
 change.
 
 	sub render_change_footer {
@@ -393,9 +393,9 @@ change.
 Dist::Zilla::Plugin::ChangelogFromGit includes a few methods to
 consistently format certain data types.
 
-### format_datetime
+### format\_datetime
 
-format_datetime() converts the [DateTime](http://search.cpan.org/perldoc?DateTime) objects used internally
+format\_datetime() converts the [DateTime](http://search.cpan.org/perldoc?DateTime) objects used internally
 into friendly, human readable dates and times for the change log.
 
 	sub format_datetime {
@@ -403,9 +403,9 @@ into friendly, human readable dates and times for the change log.
 		return $datetime->strftime("%F %T %z");
 	}
 
-### format_release_tag
+### format\_release\_tag
 
-format_release_tag() turns potentially cryptic release tags into
+format\_release\_tag() turns potentially cryptic release tags into
 friendly version numbers for the change log.  By default, it also
 replaces the 'HEAD' version with the current version being released.
 This accommodates release managers who prefer to tag their
@@ -421,9 +421,9 @@ distributions after releasing them.
 		return $release_tag;
 	}
 
-### surround_line
+### surround\_line
 
-surround_line() will surround a line of output with lines of dashes or
+surround\_line() will surround a line of output with lines of dashes or
 other characters.  It's used to help heading stand out.  This method
 takes two strings: a character (or string) that will repeat to fill
 surrounding lines, and the line to surround.  It returns a three-line
@@ -448,36 +448,36 @@ into a few internal attributes.  These aren't intended to be
 configured by dist.ini, but they are important for rendering change
 logs.
 
-## earliest_date
+## earliest\_date
 
-earliest_date() contains a [DateTime](http://search.cpan.org/perldoc?DateTime) object that represents the date
+earliest\_date() contains a [DateTime](http://search.cpan.org/perldoc?DateTime) object that represents the date
 and time of the earliest release to include.  It's initialized as
-midnight for the date max_age() days ago.
+midnight for the date max\_age() days ago.
 
 ## releases
 
 releases() contains an array reference of [Software::Release](http://search.cpan.org/perldoc?Software::Release) objects
 that will be included in the change log.
 
-### all_releases
+### all\_releases
 
-all_releases() returns a list of the Software::Release objects that
+all\_releases() returns a list of the Software::Release objects that
 should be included in the change log.  It's a friendly equivalent of
 `@{$self->releases()}`.
 
-### get_release
+### get\_release
 
-get_release() returns a single release by index.  The first release
+get\_release() returns a single release by index.  The first release
 in the change log may be retrieved as `$self->get_release(0)`.
 
-### releae_count
+### releae\_count
 
-release_count() returns the number of Software::Release objects in the
-[releases](#pod_releases) attribute.
+release\_count() returns the number of Software::Release objects in the
+["releases"](#releases) attribute.
 
-### sort_releases
+### sort\_releases
 
-sort_releases() sorts the Software::Release objects in the releases()
+sort\_releases() sorts the Software::Release objects in the releases()
 using some comparator.  For example, to sort releases in time order:
 
 	$self->sort_releases(
@@ -486,10 +486,10 @@ using some comparator.  For example, to sort releases in time order:
 		}
 	);
 
-## skipped_release_count
+## skipped\_release\_count
 
-skipped_release_count() contains the number of releases truncated by
-max_age().  The default render_changelog_footer() uses it to display
+skipped\_release\_count() contains the number of releases truncated by
+max\_age().  The default render\_changelog\_footer() uses it to display
 the number of changes that have been omitted from the log.
 
 # Subversion and CVS
@@ -525,7 +525,7 @@ overridable.
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010-2011 by Rocco Caputo.
+This software is copyright (c) 2010-2013 by Rocco Caputo.
 
 This is free software; you may redistribute it and/or modify it under
 the same terms as the Perl 5 programming language itself.

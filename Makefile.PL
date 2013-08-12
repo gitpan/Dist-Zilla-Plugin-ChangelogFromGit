@@ -20,19 +20,43 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Dist::Zilla::Plugin::ChangelogFromGit",
   "PREREQ_PM" => {
-    "DateTime" => "0.66",
-    "Dist::Zilla" => 4,
-    "Git::Repository" => "1.22",
-    "Moose::Autobox" => "0.11",
-    "Software::Release" => "0.01",
-    "Text::Wrap" => "2006.1117"
+    "DateTime" => "1.03",
+    "DateTime::Infinite" => "1.03",
+    "Dist::Zilla::Role::FileGatherer" => "4.300035",
+    "Git::Repository::Log::Iterator" => "1.307",
+    "IPC::Cmd" => "0.82",
+    "Moose" => "2.1005",
+    "Moose::Autobox" => "0.13",
+    "Software::Release" => "0.03",
+    "Software::Release::Change" => "0.03",
+    "Text::Wrap" => "2013.0523"
   },
-  "VERSION" => "0.007",
+  "TEST_REQUIRES" => {
+    "Carp" => "1.26",
+    "Scalar::Util" => "1.29",
+    "Test::More" => "0.98",
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "VERSION" => "0.014",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
