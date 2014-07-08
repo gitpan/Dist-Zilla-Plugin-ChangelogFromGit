@@ -1,8 +1,5 @@
 package Dist::Zilla::Plugin::ChangelogFromGit;
-{
-  $Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.015';
-}
-
+$Dist::Zilla::Plugin::ChangelogFromGit::VERSION = '0.016';
 # Indent style:
 #   http://www.emacswiki.org/emacs/SmartTabs
 #   http://www.vim.org/scripts/script.php?script_id=231
@@ -20,6 +17,7 @@ use DateTime::Infinite;
 use Software::Release;
 use Software::Release::Change;
 use Git::Repository::Log::Iterator;
+use Dist::Zilla::File::InMemory;
 use IPC::Cmd qw/run/;
 
 has max_age => (
@@ -424,7 +422,7 @@ Dist::Zilla::Plugin::ChangelogFromGit - Write a Changes file from a project's gi
 
 =head1 VERSION
 
-version 0.015
+version 0.016
 
 =head1 SYNOPSIS
 

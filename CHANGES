@@ -1,9 +1,29 @@
 ==================================================
-Changes from 2012-08-12 00:00:00 +0000 to present.
+Changes from 2013-07-08 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.014 at 2013-08-11 16:35:25 +0000
+version 0.016 at 2014-07-08 07:20:57 +0000
+------------------------------------------
+
+  Change: 69575d802510ce46f92d598e9e0f6341ad4b25f9
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2014-07-08 02:44:12 +0000
+
+    rt.cpan.org 90394. Use Dist::Zilla::File::InMemory so it's always
+    loaded when needed.
+
+    Thanks, Pete Smith, for reporting the problem. 
+
+  Change: 0e8e0c907297022b645ad7f78ae637057a381a57
+  Author: Rocco Caputo <rcaputo@cpan.org>
+  Date : 2014-07-08 02:43:49 +0000
+
+    Looks like the AutoMetaResources plugin doesn't do license info
+    anymore. 
+
+------------------------------------------
+version 0.015 at 2013-08-11 16:35:25 +0000
 ------------------------------------------
 
   Change: 26417b1c0c702540ab07e88e0cf3310c1b43c002
@@ -85,100 +105,6 @@ version 0.008 at 2013-08-04 18:44:32 +0000
 
     Portability + logic on detection of HEAD 
 
-------------------------------------------
-version 0.007 at 2013-04-19 03:37:25 +0000
-------------------------------------------
-
-  Change: b75ebd08c22edcc99fc07268c737e654cd89a826
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2013-04-18 20:37:25 +0000
-
-    Merge pull request #8 from zengargoyle/patch-1
-
-    [rt.cpan.org 83445] Fix include_message to include, not exclude. 
-
-  Change: 2b4a47c0fa57eeaf94bdec09fe1129bfe10f25a7
-  Author: zengargoyle <zengargoyle@gmail.com>
-  Date : 2013-02-20 23:08:33 +0000
-
-    Update lib/Dist/Zilla/Plugin/ChangelogFromGit.pm
-
-    log messages should be skipped if there is a include_message_re and
-    the message *DOESN'T* match the include_message_re. 
-
-------------------------------------------
-version 0.006 at 2012-10-11 04:01:29 +0000
-------------------------------------------
-
-  Change: d6966f4c00c8b48f978c9eb03871d89a15b52533
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2012-10-11 00:01:29 +0000
-
-    Update dist.ini to personal best practices. 
-
-  Change: c513827d82c6bc1758d32cf4215913a4905ede0f
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2012-10-11 00:01:29 +0000
-
-    Rename filter_in and filter_out to include_message and
-    exclude_message. 
-
-  Change: f4110ec9a2e7969dd5ef1677bcd66b9db4a15195
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2012-10-10 20:59:55 +0000
-
-    Merge pull request #6 from ironcamel/pr/synopsis-tag_regexp
-
-    Fixing the SYNOPSIS describing the default tag_regexp value 
-
-  Change: ae720c1e7207a79363c3d70e97d1f121f6fbb5c2
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2012-10-10 20:44:22 +0000
-
-    Merge pull request #7 from andrefs/master
-
-    Adding filter_out and filter_in options. 
-
-  Change: 8507a954f6e8096802a80299233b0fb3345eae26
-  Author: André Santos <andrefs@cpan.org>
-  Date : 2012-09-26 21:58:19 +0000
-
-    added filter_out and filter_in options 
-
-  Change: df7d696a90f8af78ff6305386e371160941fb442
-  Author: Naveed Massjouni <naveedm9@gmail.com>
-  Date : 2012-07-23 02:17:48 +0000
-
-    Fixing the SYNOPSIS describing the default tag_regexp value 
-
-  Change: 0061b3a8322478f04cddecf91a521b5179219a1d
-  Author: Rocco Caputo <rcaputo@cpan.org>
-  Date : 2012-04-29 14:52:54 +0000
-
-    Merge pull request #5 from kentfredric/no-releases-bug
-
-    Fix a lovely little error scenario which occurs when it can find no
-    previous releases. 
-
-  Change: e26a496ebc85445dfe0a6190b99bf4fb968d257d
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-03-19 06:26:51 +0000
-
-    Fix a lovely little error scenario which occurs when it can find no
-    previous releases.
-
-    A. It tries to get_release(-1), which returns undef , and then it
-    tries undef->version() , which can't work.
-
-    B. When you avoid the former by checking for an empty release set
-    first,
-
-    it dies trying to dereference "undef" to an array to return
-
-    elements(), so pre-populating the array with a default empty
-
-    array-reference is required for it to work. 
-
 ================================================
-Plus 4 releases after 2012-08-12 00:00:00 +0000.
+Plus 6 releases after 2013-07-08 00:00:00 +0000.
 ================================================
